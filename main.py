@@ -15,26 +15,32 @@ def welcome():
 def chkform():
     error = "" #initialize error as empty string
 
+    username = request.form["username"]
     if len(username) <3 or len(username) > 20:
     	error = "You must enter a valid user name"
+
+    password  =request.form["password"]
     if len(password) <3 or len(password) > 20:
     	error = "Invalid password"
+
+    chkpwd = request.form["chkpwd"]
     if chkpwd != password:
     	error = "Password mismatch"
+
+    emailaddr = request.form["emailaddr"]
     if "@" not in emailaddr or "." not in emailaddr:
     	error = "Make sure email address is valid"
+
     if error:
-        return render_template("/", error=error)
+        return render_template("user_signup_form.html")
     else:
-        return render_template("/welcome")
+        return render_template("welcome.html", username=username)
 
 
 
 @app.route("/")
 def index():
-    encoded_error = request.args.get("error")
-    error = ""
-    return render_template('user_signup_form.html', error=error)
-    #return render_template('edit.html', watchlist=get_current_watchlist(), error=encoded_error and cgi.escape(encoded_error, quote=True))
+    return render_template('user_signup_form.html')
+
 
 app.run()
