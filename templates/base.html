@@ -15,19 +15,20 @@
             <form method = "post">
                 <label for="username">Username</label>
                 <input name="username" type="text" value="">
-                <span class="error">You must enter a user name</span>
+                <br>
                 <label for="password">Password</label>
                 <input name="password" type="password">
-                <span class="error">Invalid password</span>
+                <br>
                 <label for="chkpwd">Re-enter password</label>
                 <input name="chkpwd" type="password">
-                <span class="error">Please re-enter your password</span>
+                <br>
                 <label for="emailaddr">Email Address</label>
                 <input name="emailaddr" type="text" value="">
-                <span class="error">Make sure email address is valid</span>
+                <br>
                 <input  value="Sign up!" type="submit">
             </form>
         {% block content %}
+
         {% endblock %}
 
     </body>
