@@ -33,9 +33,9 @@ def chkform():
     emailaddr = request.form["emailaddr"]
     if emailaddr: #If it's not empty, since it's optional
         if " " in emailaddr:
-            email_error = "Make sure email address is valid"
+            email_error = "Email cannot contain spaces"
         if len(emailaddr) < 3 or len(emailaddr) >20:
-            email_error = "Make sure email address is valid"
+            email_error = "Email must be 3 - 20 characters"
         if "@" not in emailaddr or "." not in emailaddr:
             email_error = "Make sure email address is valid"
 
